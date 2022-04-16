@@ -11,21 +11,36 @@
       <!-- Splash -->
       <div id="main-splash" class="splash"></div>
       <!-- Pantallas de OnBording -->
-      <div id="onbording-one" class="onbording-one">
-      </div>
-      <div id="onbording-two" class="onbording-two">
-      </div>
+      <div id="onbording-one" class="onbording-one"></div>
+      <div id="onbording-two" class="onbording-two"></div>
       <!-- Pantallas de Categoria -->
-      <div id="main-category" class="category"></div>
+      <div id="main-category" class="category tabcontent show"></div>
+      <div id="main-message" class="message tabcontent">
+
+      </div>
+      <div id="main-favorite" class="tabcontent">
+        <h2>Favoritos</h2>
+      </div>
+      <div id="main-profile" class="tabcontent">
+        <h2>Perfil</h2>
+      </div>
+      <!-- Pantalla de detalles -->
+      <div id="details" class="card-details"></div>
     </main>
-    <footer id="menu-mascotas" class="mascotas-menu hidden">
-      <button id="btn-home" class="custom-btn mascotas-item btn-radius active">
+    <footer id="menu-mascotas" class="mascotas-menu tabs hidden">
+      <button
+        id="btn-home"
+        class="custom-btn mascotas-item tab-item tablinks btn-radius active"
+      >
         <div class="mascotas-icon">
           <img id="home-icon" src="../svg/Property 1=home-active.svg" alt="" />
         </div>
         <strong id="home-text" class="active">Home</strong>
       </button>
-      <button id="btn-mensajes" class="custom-btn mascotas-item btn-radius">
+      <button
+        id="btn-mensajes"
+        class="custom-btn mascotas-item tab-item tablinks btn-radius"
+      >
         <div class="mascotas-icon">
           <img
             id="mensajes-icon"
@@ -35,13 +50,19 @@
         </div>
         <strong id="mensajes-text" class="inactive">Mensajes</strong>
       </button>
-      <button id="btn-favoritos" class="custom-btn mascotas-item btn-radius">
+      <button
+        id="btn-favoritos"
+        class="custom-btn mascotas-item tab-item tablinks btn-radius"
+      >
         <div class="mascotas-icon">
           <img id="favoritos-icon" src="../svg/Property 1=heart.svg" alt="" />
         </div>
         <strong id="favoritos-text" class="inactive">Favoritos</strong>
       </button>
-      <button id="btn-perfil" class="custom-btn mascotas-item btn-radius">
+      <button
+        id="btn-perfil"
+        class="custom-btn mascotas-item tab-item tablinks btn-radius"
+      >
         <div class="mascotas-icon">
           <img id="perfil-icon" src="../svg/Property 1=user.svg" alt="" />
         </div>

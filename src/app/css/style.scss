@@ -17,6 +17,7 @@ main {
     position: relative;
     min-height: 90vh;
     height: 100vh;
+    overflow: hidden;
 }
 
 .splash {
@@ -65,14 +66,16 @@ main {
 /* onbording */
 .onbording-one,
 .onbording-two,
-.category {
+.category,
+.card-details {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: absolute;
     height: 100%;
     width: 100%;
-    right: -1000px
+    right: -1000px;
+    overflow: scroll;
 }
 
 
@@ -221,7 +224,7 @@ h3 {
     margin: 0;
     min-height: 10vh;
     align-items: center;
-    
+
 }
 
 .btn-radius {
@@ -235,8 +238,6 @@ h3 {
     display: flex;
     align-items: center;
     padding: 10px;
-    margin-left: 20px;
-    margin-right: 25px;
 }
 
 .inactive {
@@ -262,11 +263,304 @@ h3 {
 }
 
 
-
 .hidden-left {
     left: -1000px;
+    display: none;
 }
 
 .show-right {
     right: 0px;
+    display: flex;
+}
+
+/* Card de Detalle*/
+
+.icon-sex {
+    width: 32px;
+    height: 32px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.card-image-container-details {
+    height: 422px;
+}
+
+.img-card-details {
+    width: 375px;
+    height: 442px;
+}
+
+.container-body-details {
+    border-radius: 16px 16px 0px 0px;
+    background: white;
+    padding-top: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.title-card-details {
+    font-size: 24px;
+}
+
+.favoritos-add {
+    width: 48px;
+    height: 48px;
+}
+
+.favoritos-add img {
+    width: 48px;
+    height: 48px;
+
+}
+
+.container-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    height: 48px;
+}
+
+.name-and-sex {
+    display: flex;
+    align-items: center;
+}
+
+.name-and-sex h1 {
+    margin: 0;
+}
+
+.name-and-sex img {
+    margin-left: 5px;
+    width: 32px;
+}
+
+.raza-edad {
+    display: flex;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.raza,
+.edad {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px;
+    width: 148px;
+    height: 24px;
+    align-items: center;
+}
+
+.raza img,
+.edad img {
+    margin-right: 8px;
+}
+
+.item-personality {
+    border: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    width: 92px;
+    height: 92px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item-personality-hijo {
+    margin-top: 13px;
+}
+
+.item-personality p {
+    margin: 0;
+}
+
+.published-user img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid #85D1CE;
+}
+
+
+.location {
+    width: 327px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.location p {
+    width: 295px;
+}
+
+.location img {
+    margin-right: 8px;
+}
+
+.personality {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.published {
+    display: flex;
+    align-items: center;
+}
+
+.published-name {
+    margin-left: 7px;
+    width: 92px;
+    height: 34px;
+}
+
+.published-name h4 {
+    color: gray;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.published-name h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19.1px;
+}
+
+.published-name h3,
+.published-name h4 {
+    margin: 0;
+}
+
+.published-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.btn-radius {
+    border-radius: 25px;
+
+}
+
+.custom-btn-dark {
+    background: #0E172C;
+    color: white;
+}
+
+.back {
+    position: absolute;
+    margin-left: 24px;
+    margin-top: 24px;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.message {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container-message {
+    background: white;
+    border-radius: 8px;
+    width: 327px;
+    height: 97px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.perfil-message {
+    width: 64px;
+    height: 64px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.perfil-message img {
+    border-radius: 50%;
+    border: 3px solid $bg-color-green;
+    width: 64px;
+    height: 64px;
+
+
+}
+
+.message-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.message-title h3,
+.message-title p {
+    margin: 0;
+}
+
+.message-title h3 {
+    padding-left: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.message-title p {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.message-text {
+    margin: 0;
+    margin-left: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.1px;
+    width: 207px;
+    height: 57px;
+}
+
+.message-text p {
+    margin: 0;
+
+
+}
+
+.message-icon {
+    width: 32px;
+    padding-left: 4px;
+    padding-right: 4px;
+    justify-content: center;
+    display: flex;
+
+}
+
+.bandeja {
+    margin-right: 8px;
+    width: 207px;
+    height: 81px;
 }
