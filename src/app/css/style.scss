@@ -32,7 +32,7 @@ main {
 
 .onbording-one,
 .onbording-two {
-    right: -1000px;
+    right: -3000px;
     transition: all 1s;
 }
 
@@ -74,7 +74,7 @@ main {
     position: absolute;
     height: 100%;
     width: 100%;
-    right: -1000px;
+    right: -3000px;
     overflow: scroll;
 }
 
@@ -264,7 +264,7 @@ h3 {
 
 
 .hidden-left {
-    left: -1000px;
+    left: -3000px;
     display: none;
 }
 
@@ -473,6 +473,7 @@ h3 {
     display: flex;
 }
 
+.favorites,
 .message {
     display: flex;
     width: 100%;
@@ -563,4 +564,68 @@ h3 {
     margin-right: 8px;
     width: 207px;
     height: 81px;
+}
+
+.perfil {
+    margin: 0 auto;
+}
+
+.container-form {
+    padding-top: 24px;
+    width: 327px;
+    height: 332px;
+}
+
+.name-img-perfil {
+    text-align: center;
+}
+
+.name-img-perfil img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.name-img-perfil p {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5%;
+    text-align: center;
+
+}
+
+.name-img-perfil button {
+    border: none;
+    background: none;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.container-form input {
+    border-radius: 5px;
+    margin-top: 4px;
+    width: 327px;
+    height: 42px;
+    border: 2px solid gray;
+}
+
+.container-form label {
+    padding: 0px 0px 0px 16px;
+    width: 74px;
+    height: 24px;
+}
+
+.item-form {
+    width: 327px;
+    margin-bottom: 16px;
+    height: 76px;
+}
+
+.btn-form {
+    width: 327px;
+    height: 48px;
+    margin-top: 16px;
+    border: none;
+
 }

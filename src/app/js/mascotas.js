@@ -1,13 +1,13 @@
 const urlBase = "https://adopciondemascotas.herokuapp.com";
 
 const getByCategory = async (category) => {
-  let endpoint = category;
-  const response = await fetch(`${urlBase}/${endpoint}`);
+  let endpoint = "mascotas";
+  const response = await fetch(`${urlBase}/${endpoint}/?category=${category}`);
   return await response.json();
 };
 
-const getByIdForCategory = async (id, category) => {
-  let endpoint = category;
+const getById = async (id) => {
+  let endpoint = "mascotas";
   const response = await fetch(`${urlBase}/${endpoint}/${id}`);
   return await response.json();
 };
@@ -34,8 +34,8 @@ const removeFavorites = async (id) => {
   return await response.json();
 };
 
-const addOrRemoveFavorites = async (id, category, datos) => {
-  let endpoint = category;
+const addOrRemoveFavorites = async (id, datos) => {
+  let endpoint = "mascotas";
   const url = `${urlBase}/${endpoint}/${id}`;
 
   if (!datos.favorito) {
@@ -51,12 +51,24 @@ const addOrRemoveFavorites = async (id, category, datos) => {
     const response = await fetch(url, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...datos, favorito: false}),
+      body: JSON.stringify({ ...datos, favorito: false }),
     });
     const mascotaActualizada = await response.json();
     removeFavorites(mascotaActualizada.id);
     return mascotaActualizada;
   }
 };
-const mascotas = { getByCategory, getByIdForCategory, addOrRemoveFavorites };
+
+const getFavorites = async (id=null) => {
+  let endpoint = "favoritos";
+  if (!id) {
+    const response = await fetch(`${urlBase}/${endpoint}`);
+    return await response.json();
+  } else {
+    const response = await fetch(`${urlBase}/${endpoint}/${id}`);
+    return await response.json();
+  }
+};
+
+const mascotas = { getByCategory, getById, addOrRemoveFavorites, getFavorites };
 export default mascotas;

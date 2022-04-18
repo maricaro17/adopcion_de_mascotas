@@ -21,6 +21,9 @@ import { buildCategory } from "./buildCategory";
 import mascotas from "./mascotas";
 import { buildDetails, buildPersonality } from "./buildDetails";
 import { buildSingleMessage } from "./buildSingleMessage";
+import { buildFavorites } from "./buildFavorites";
+import { buildProfile } from "./buildProfile";
+import { getPerfil } from "./perfile";
 /* Elementos */
 const mainSplash = document.getElementById("main-splash");
 const onBordingOne = document.getElementById("onbording-one");
@@ -134,12 +137,10 @@ const btnNextOneClick = (e) => {
 
     document.addEventListener("click", (e) => {
       let id = e.target.id;
-      let category = e.target.title;
       if (e.target.classList.contains("mascota-info")) {
         mascotasCategory.classList.add(HIDDEN_LEFT);
         mascotasMenu.classList.add("hidden");
-        mascotas.getByIdForCategory(id, category).then((data) => {
-          console.log(data);
+        mascotas.getById(id).then((data) => {
           mascotasDetails.innerHTML = buildDetails(data);
           const personality = document.getElementById("personality");
 
@@ -157,7 +158,7 @@ const btnNextOneClick = (e) => {
           const btnFavorite = document.getElementById("favorite");
           const favoriteIcon = document.getElementById("favoriteIcon");
           btnFavorite.addEventListener("click", (e) => {
-            mascotas.addOrRemoveFavorites(id, category, data).then((result) => {
+            mascotas.addOrRemoveFavorites(id, data).then((result) => {
               if (result.favorito) {
                 favoriteIcon.setAttribute("src", favoriteIconDetailsActive);
               } else {
@@ -201,8 +202,6 @@ tabContainer.addEventListener("click", (e) => {
   }
 });
 
-
-
 function openTab(e, tabName) {
   let i, tabcontent, tablinks;
   switch (e.target.id) {
@@ -237,7 +236,7 @@ function openTab(e, tabName) {
       textProfile.classList.add("inactive");
       textProfile.classList.remove("active");
       iconProfile.setAttribute("src", profile);
-      mainMessage.innerHTML = buildSingleMessage()
+      mainMessage.innerHTML = buildSingleMessage();
       break;
     case "favoritos-icon":
     case "btn-favoritos":
@@ -254,6 +253,23 @@ function openTab(e, tabName) {
       textProfile.classList.add("inactive");
       textProfile.classList.remove("active");
       iconProfile.setAttribute("src", profile);
+      const favoriteTitle = "Mascotas Favoritas";
+      mainFavorite.innerHTML = `
+            <div>
+              <div>
+                  <h1 class="mascotas-title">${favoriteTitle}</h1>
+              </div>
+
+            </div>
+            <div id="mascotasFavorites" class="mascotas-category pt-24"></div>
+          `;
+      const mascotasFavorites = document.getElementById("mascotasFavorites");
+      mascotas.getFavorites().then((data) => {
+        data.forEach((item) => {
+          mascotasFavorites.innerHTML += buildFavorites(item);
+        });
+      });
+
       break;
     case "perfil-icon":
     case "btn-perfil":
@@ -270,6 +286,10 @@ function openTab(e, tabName) {
       textProfile.classList.add("active");
       textProfile.classList.remove("inactive");
       iconProfile.setAttribute("src", profileActive);
+      getPerfil().then((data) => {
+        mainProfile.innerHTML = buildProfile(data);
+      });
+
       break;
   }
 
